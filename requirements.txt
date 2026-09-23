@@ -1,0 +1,32 @@
+# Lawyer Agent — Phase 2 desktop application
+# Install with:  pip install -r requirements.txt
+
+# --- Desktop UI ---
+PyQt6>=6.7.0
+
+# --- OCR ---
+pytesseract>=0.3.10
+Pillow>=10.0.0
+pdf2image>=1.17.0
+pypdf>=5.0.0
+
+# --- Vector store + RAG orchestration ---
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-text-splitters>=0.3.0
+langchain-chroma>=0.1.4
+langchain-ollama>=0.2.0
+chromadb>=0.5.0
+
+# --- Mobile bridge (QR local transfer) ---
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+
+# --- QR code rendering ---
+qrcode[pil]>=8.0
+
+# --- Native Windows notifications ---
+plyer>=2.1.0
+winotify>=1.1.0

@@ -1,0 +1,118 @@
+/* ====== Lawyer Agent — global stylesheet (deep-navy shell) ======
+   Double-brace token markers (e.g. brass, navy, base_pt) are substituted from
+   config.THEME by ui/theme.py at load time, keeping the palette single-sourced. */
+
+/* ---------- base ---------- */
+QWidget { font-family: "{{font}}"; font-size: {{base_pt}}pt; color: {{ink}}; }
+QMainWindow { background: {{shell}}; }          /* dark canvas */
+QDialog     { background: {{parchment}}; }      /* dialogs stay light */
+
+/* ---------- nav rail (dark chrome, flush) ---------- */
+#Sidebar    { background: {{navy_deep}}; border: none; }
+#SidebarLogo{ color: {{parchment}}; font-size: {{title_pt}}pt; font-weight: 700;
+              padding: 22px 18px 4px 18px; }
+#SidebarSub { color: {{slate_light}}; font-size: 9.5pt; padding: 0 18px 18px 18px; }
+#NavButton  { background: transparent; border: none; color: {{slate_light}};
+              text-align: right; padding: 13px 18px; font-size: 12.5pt;
+              border-right: 3px solid transparent; }
+#NavButton:hover   { background: {{navy_light}}; color: {{parchment}}; }
+#NavButton:checked { background: {{navy_light}}; color: {{parchment}};
+                     border-right: 3px solid {{brass}}; font-weight: 600; }
+
+/* ---------- floating content cards ---------- */
+#ShelfPanel, #DocPanel, #CalendarPanel, #SettingsPanel, #ChatPanel {
+    background: {{parchment}}; border: 1px solid {{border}}; border-radius: 12px;
+}
+#ChatHeader {                     /* navy bar at the top of the chat card */
+    background: {{navy}}; color: {{parchment}};
+    font-size: {{heading_pt}}pt; font-weight: 600; padding: 14px 18px;
+    border-top-left-radius: 12px; border-top-right-radius: 12px;
+}
+
+/* ---------- headings / captions ---------- */
+QLabel[role="heading"] { color: {{navy}}; font-size: {{heading_pt}}pt; font-weight: 700; }
+QLabel[role="caption"] { color: {{muted}}; font-size: 10pt; }
+QLabel[role="muted"]   { color: {{muted}}; }
+
+/* ---------- lists / trees / tables (nested white cards) ---------- */
+QListWidget, QTreeWidget, QTableWidget {
+    background: {{white}}; border: 1px solid {{border}}; border-radius: 8px;
+    outline: none; padding: 4px; gridline-color: {{parchment_alt}};
+}
+QListWidget::item, QTreeWidget::item { padding: 10px 10px; border-radius: 6px; }
+QListWidget::item:hover, QTreeWidget::item:hover { background: {{parchment_alt}}; }
+QListWidget::item:selected, QTreeWidget::item:selected,
+QTableWidget::item:selected { background: {{navy}}; color: {{parchment}}; }
+QHeaderView::section { background: {{parchment_alt}}; color: {{slate}}; border: none;
+    border-bottom: 1px solid {{border}}; padding: 9px; font-weight: 600; }
+QTableCornerButton::section { background: {{parchment_alt}}; border: none; }
+
+/* ---------- inputs ---------- */
+QLineEdit, QTextEdit, QPlainTextEdit, QComboBox, QDateTimeEdit, QDateEdit {
+    background: {{white}}; border: 1px solid {{border}}; border-radius: 8px;
+    padding: 9px 12px; selection-background-color: {{navy}};
+    selection-color: {{parchment}}; }
+QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus, QComboBox:focus,
+QDateTimeEdit:focus, QDateEdit:focus { border: 1px solid {{brass}}; }
+QComboBox::drop-down { border: none; width: 26px; }
+QComboBox QAbstractItemView { background: {{white}}; border: 1px solid {{border}};
+    border-radius: 8px; padding: 4px; selection-background-color: {{navy}};
+    selection-color: {{parchment}}; outline: none; }
+
+/* ---------- buttons ---------- */
+QPushButton { background: {{navy}}; color: {{parchment}}; border: none;
+    border-radius: 8px; padding: 10px 20px; font-weight: 600; }
+QPushButton:hover    { background: {{navy_light}}; }
+QPushButton:pressed  { background: {{navy_deep}}; }
+QPushButton:disabled { background: {{slate_light}}; color: {{parchment_alt}}; }
+QPushButton[variant="ghost"]  { background: transparent; color: {{navy}};
+    border: 1px solid {{border}}; }
+QPushButton[variant="ghost"]:hover { background: {{brass_soft}}; border: 1px solid {{brass}}; }
+QPushButton[variant="danger"] { background: {{danger}}; color: {{parchment}}; }
+QPushButton[variant="danger"]:hover { background: #B23A3A; }
+/* toolbar sits on the dark chrome bar — buttons must read light there */
+QToolBar { background: {{navy_deep}}; border: none; padding: 8px; spacing: 8px; }
+QToolBar QPushButton { background: {{navy_light}}; color: {{parchment}}; }
+QToolBar QPushButton:hover { background: {{brass}}; }
+QToolBar QPushButton[variant="ghost"] { background: transparent; color: {{parchment}};
+    border: 1px solid {{slate}}; }
+QToolBar QPushButton[variant="ghost"]:hover { border: 1px solid {{brass}}; color: {{brass_light}}; }
+
+/* ---------- chat ---------- */
+#ChatTranscript { background: {{white}}; border: 1px solid {{border}};
+    border-radius: 8px; padding: 12px; }
+#ChatInput { background: {{white}}; border: 1px solid {{border}};
+    border-radius: 8px; padding: 10px; }
+
+/* ---------- progress bar (documents) ---------- */
+QProgressBar { background: {{parchment_alt}}; border: none; border-radius: 3px; }
+QProgressBar::chunk { background: {{brass}}; border-radius: 3px; }
+
+/* ---------- group boxes (settings sub-cards) ---------- */
+QGroupBox { background: {{white}}; border: 1px solid {{border}}; border-radius: 10px;
+    margin-top: 16px; padding: 16px; font-weight: 700; }
+QGroupBox::title { subcontrol-origin: margin; right: 14px; padding: 0 6px; color: {{navy}}; }
+
+/* ---------- status bar ---------- */
+QStatusBar { background: {{navy_deep}}; color: {{parchment}}; }
+QStatusBar::item { border: none; }
+
+/* ---------- splitter: wide transparent gutter shows the dark canvas ---------- */
+QSplitter::handle { background: transparent; }
+QSplitter::handle:horizontal { width: 14px; }
+QSplitter::handle:vertical   { height: 14px; }
+
+/* ---------- scrollbars: thin, flat, modern ---------- */
+QScrollBar:vertical   { background: transparent; width: 9px; margin: 2px; }
+QScrollBar:horizontal { background: transparent; height: 9px; margin: 2px; }
+QScrollBar::handle:vertical   { background: {{slate_light}}; border-radius: 4px; min-height: 32px; }
+QScrollBar::handle:horizontal { background: {{slate_light}}; border-radius: 4px; min-width: 32px; }
+QScrollBar::handle:hover { background: {{slate}}; }
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; width: 0; }
+QScrollBar::add-page, QScrollBar::sub-page { background: transparent; }
+
+/* ---------- tooltips / menus ---------- */
+QToolTip { background: {{navy_deep}}; color: {{parchment}}; border: 1px solid {{brass}}; padding: 6px; }
+QMenu { background: {{white}}; border: 1px solid {{border}}; border-radius: 8px; padding: 4px; }
+QMenu::item { padding: 8px 22px; border-radius: 6px; }
+QMenu::item:selected { background: {{navy}}; color: {{parchment}}; }

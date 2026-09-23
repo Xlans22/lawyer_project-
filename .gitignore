@@ -1,0 +1,8 @@
+# Never commit client data or the local index — confidential material.
+data/
+vectorstore/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
